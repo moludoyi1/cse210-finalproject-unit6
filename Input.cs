@@ -29,13 +29,13 @@ class dataInput {
         if (input == "hourly") {
             Console.WriteLine("");
             Console.Write("How much do get paid per hour, ex: $16? $");
-            int input = Console.ReadLine();
+            int input = int.Parse(Console.ReadLine()); //turns the input as int
             return wageType.Hourly;
         }
-        else (input == "salary") {
+        else if(input == "salary") {
             Console.WriteLine("");
             Console.Write("How much is your salary per year? $");
-            int input = Console.ReadLine();
+            int input = int.Parse(Console.ReadLine());
             return wageType.Salary;
         }
     }
@@ -49,17 +49,18 @@ class dataInput {
         if (input == "yes") {
             Console.WriteLine("What utilites do you pay? ex:'car note': ");
             string billpayments = Console.ReadLine();
-            utilities.Add(billpayments, 0);
+            utilities.Add(billpayments, 0); //adds the bill to the dictionary with a value of 0
             Console.WriteLine($"How much do you pay for {billpayments}: ")
             string billamount = Console.ReadLine();
-            utilities[billpayments] = billamount;
+            utilities[billpayments] = double.Parse(billamount); //parse the input as double and sets it as the value for the bill in the dictionary
+            return utilities;
         }
         // utilities.Add(billpayments, billamounts);
-        else (input == "no") {
+        else if(input == "no") {
             Console.WriteLine("alright, good for you!!");
-            string nopayments = Console.ReadLine();
+            return utilities;  //return an empty dictionary
         }
-        return utilities;  //return an empty dictionary
+        
     }
 
     // public string titHing() {
