@@ -47,19 +47,19 @@ class dataInput {
         Console.Write("Do you pay any utilities/bills? ");
         string input = Console.ReadLine();
         if (input == "yes") {
-            Console.WriteLine("what utilites do you pay? ex:'car note': ");
+            Console.WriteLine("What utilites do you pay? ex:'car note': ");
             string billpayments = Console.ReadLine();
-            return billpayments.Add();
+            utilities.Add(billpayments, 0);
             Console.WriteLine($"How much do you pay for {billpayments}: ")
             string billamount = Console.ReadLine();
-            return billamount;
+            utilities[billpayments] = billamount;
         }
         // utilities.Add(billpayments, billamounts);
         else (input == "no") {
             Console.WriteLine("alright, good for you!!");
             string nopayments = Console.ReadLine();
-            return nopayments;
         }
+        return utilities;  //return an empty dictionary
     }
 
     // public string titHing() {
