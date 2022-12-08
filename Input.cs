@@ -26,42 +26,94 @@ class dataInput {
         Console.WriteLine("lowercases pls");
         Console.Write("Do you get paid hourly or salary? ");
         string input = Console.ReadLine();
-        if (input == "hourly") {
-            Console.WriteLine("");
-            Console.Write("How much do get paid per hour, ex: $16? $");
-            int input = int.Parse(Console.ReadLine()); //turns the input as int
-            return wageType.Hourly;
-        }
-        else if(input == "salary") {
-            Console.WriteLine("");
-            Console.Write("How much is your salary per year? $");
-            int input = int.Parse(Console.ReadLine());
-            return wageType.Salary;
-        }
-    }
+        wageType wageType;
 
+        switch(input) {
+            
+            case "hourly":
+                Console.WriteLine("")
+                Console.Write("How much do you get paid per hour, ex: $16? $");
+                int input = int.Parse(Console.ReadLine()); //turns the input to int
+                wageType = wageType.Hourly;
+                break;
+
+            case "salary":
+                Console.WriteLine("");
+                Console.Write("How much is your salary per year? ");
+                int input = int.Parse(Console.ReadLine());
+                wageType = wageType.Salary;
+                break;
+            
+            default:
+                Console.WriteLine("Invalid input. Please try again.");
+            return hourlySalary(); //recursively call the method until a valid input is provided
+        }
+        return wageType;
+    }
 
     public Dictionary<string, double> Utilities() {
         Dictionary<string, double> utilities = new Dictionary<string, double>();
         Console.WriteLine("");
         Console.Write("Do you pay any utilities/bills? ");
         string input = Console.ReadLine();
+
         if (input == "yes") {
             Console.WriteLine("What utilites do you pay? ex:'car note': ");
-            string billpayments = Console.ReadLine();
-            utilities.Add(billpayments, 0); //adds the bill to the dictionary with a value of 0
-            Console.WriteLine($"How much do you pay for {billpayments}: ")
-            string billamount = Console.ReadLine();
-            utilities[billpayments] = double.Parse(billamount); //parse the input as double and sets it as the value for the bill in the dictionary
+
+            while (true) {//loop until the user inputs "done"
+                Console.Write("Enter the name of the utility or bill: ");
+                string billName = Console.ReadLine();
+
+                if (billName == "done"){//break the loop when user is done entering bills
+                    break;
+                }
+                Console.WriteLine("Enter the amount of the utility of bill: ");
+                string billAmount = Console.ReadLine();
+                utilities.Add(billName, double.Parse(billAmount)); //parses the input as double and adds the bill to the dictionary
+            }
             return utilities;
         }
-        // utilities.Add(billpayments, billamounts);
-        else if(input == "no") {
+        else if (input == "no") {
             Console.WriteLine("alright, good for you!!");
-            return utilities;  //return an empty dictionary
+            return utilities; //return an empty dictionary
         }
-        
     }
+        // if (input == "hourly") {
+        //     Console.WriteLine("");
+        //     Console.Write("How much do get paid per hour, ex: $16? $");
+        //     int input = int.Parse(Console.ReadLine()); //turns the input as int
+        //     return wageType.Hourly;
+        // }
+        // else if(input == "salary") {
+        //     Console.WriteLine("");
+        //     Console.Write("How much is your salary per year? $");
+        //     int input = int.Parse(Console.ReadLine());
+        //     return wageType.Salary;
+        // }
+        // }
+
+
+    // public Dictionary<string, double> Utilities() {
+    //     Dictionary<string, double> utilities = new Dictionary<string, double>();
+    //     Console.WriteLine("");
+    //     Console.Write("Do you pay any utilities/bills? ");
+    //     string input = Console.ReadLine();
+    //     if (input == "yes") {
+    //         Console.WriteLine("What utilites do you pay? ex:'car note': ");
+    //         string billpayments = Console.ReadLine();
+    //         utilities.Add(billpayments, 0); //adds the bill to the dictionary with a value of 0
+    //         Console.WriteLine($"How much do you pay for {billpayments}: ")
+    //         string billamount = Console.ReadLine();
+    //         utilities[billpayments] = double.Parse(billamount); //parse the input as double and sets it as the value for the bill in the dictionary
+    //         return utilities;
+    //     }
+    //     // utilities.Add(billpayments, billamounts);
+    //     else if(input == "no") {
+    //         Console.WriteLine("alright, good for you!!");
+    //         return utilities;  //return an empty dictionary
+    //     }
+        
+    // }
 
     // public string titHing() {
     //     Console.WriteLine("");
