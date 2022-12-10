@@ -26,30 +26,48 @@ class dataInput {
         Console.WriteLine("lowercases pls");
         Console.Write("Do you get paid hourly or salary? ");
         string input = Console.ReadLine();
-        wageType wageType;
-
-        switch(input) {
-            
-            case "hourly":
-                Console.WriteLine("")
-                Console.Write("How much do you get paid per hour, ex: $16? $");
-                int input = int.Parse(Console.ReadLine()); //turns the input to int
-                wageType = wageType.Hourly;
-                break;
-
-            case "salary":
-                Console.WriteLine("");
-                Console.Write("How much is your salary per year? ");
-                int input = int.Parse(Console.ReadLine());
-                wageType = wageType.Salary;
-                break;
-            
-            default:
-                Console.WriteLine("Invalid input. Please try again.");
-            return hourlySalary(); //recursively call the method until a valid input is provided
+        if (input == "hourly") {
+            Console.WriteLine("");
+            Console.Write("How much do get paid per hour, ex: $16? $");
+            int perHour = int.Parse(Console.ReadLine()); //turns the input to int
+            return wageType.Hourly;
         }
-        return wageType;
+        else if(input == "salary") {
+            Console.WriteLine("");
+            Console.Write("How much is your salary per year? $");
+            int perAnnually = int.Parse(Console.ReadLine());
+            return wageType.Salary;
+        }
+        else {
+            Console.WriteLine("Invalid input, stupid. Try again!!");
+            return hourlySalary(); //calls the method until a valid input is provided
+        }
     }
+
+    //     wageType wageType;
+
+    //     switch(input) {
+            
+    //         case "hourly":
+    //             Console.WriteLine("")
+    //             Console.Write("How much do you get paid per hour, ex: $16? $");
+    //             int input = int.Parse(Console.ReadLine()); //turns the input to int
+    //             wageType = wageType.Hourly;
+    //             break;
+
+    //         case "salary":
+    //             Console.WriteLine("");
+    //             Console.Write("How much is your salary per year? ");
+    //             int input = int.Parse(Console.ReadLine());
+    //             wageType = wageType.Salary;
+    //             break;
+            
+    //         default:
+    //             Console.WriteLine("Invalid input. Please try again.");
+    //         return hourlySalary(); //recursively call the method until a valid input is provided
+    //     }
+    //     return wageType;
+    // }
 
     public Dictionary<string, double> Utilities() {
         Dictionary<string, double> utilities = new Dictionary<string, double>();
@@ -60,14 +78,15 @@ class dataInput {
         if (input == "yes") {
             Console.WriteLine("What utilites do you pay? ex:'car note': ");
 
-            while (true) {//loop until the user inputs "done"
+            while (true) { //loop until the user inputs "done"
+                Console.WriteLine("Enter 'done' when done entering bill names");
                 Console.Write("Enter the name of the utility or bill: ");
                 string billName = Console.ReadLine();
 
-                if (billName == "done"){//break the loop when user is done entering bills
+                if (billName == "done") { //break the loop when user is done entering bills
                     break;
                 }
-                Console.WriteLine("Enter the amount of the utility of bill: ");
+                Console.WriteLine("Enter the amount of the utility of bill per month: ");
                 string billAmount = Console.ReadLine();
                 utilities.Add(billName, double.Parse(billAmount)); //parses the input as double and adds the bill to the dictionary
             }
@@ -77,20 +96,11 @@ class dataInput {
             Console.WriteLine("alright, good for you!!");
             return utilities; //return an empty dictionary
         }
+        else {
+            return default;
+        }
     }
-        // if (input == "hourly") {
-        //     Console.WriteLine("");
-        //     Console.Write("How much do get paid per hour, ex: $16? $");
-        //     int input = int.Parse(Console.ReadLine()); //turns the input as int
-        //     return wageType.Hourly;
-        // }
-        // else if(input == "salary") {
-        //     Console.WriteLine("");
-        //     Console.Write("How much is your salary per year? $");
-        //     int input = int.Parse(Console.ReadLine());
-        //     return wageType.Salary;
-        // }
-        // }
+        
 
 
     // public Dictionary<string, double> Utilities() {

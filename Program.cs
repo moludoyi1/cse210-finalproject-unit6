@@ -1,10 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
+class Main {
 
+    TaxDict states =  new TaxDict();
+    dataInput inputs = new dataInput();
 
+    // public int getMonthlyEarnings() {
+    //     if (wageType = wageType.Hourly) {
 
-static void DisplayWelcomeMessage() {
+    //     }
+    // }
+
+    static void DisplayWelcomeMessage() {
         Console.WriteLine("");
         Console.WriteLine("");
         Console.WriteLine("############################");
@@ -16,4 +24,5 @@ static void DisplayWelcomeMessage() {
         Console.WriteLine("");
         Console.WriteLine("");
         Console.WriteLine("");
+    }
 }

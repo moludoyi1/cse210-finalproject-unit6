@@ -55,12 +55,4 @@ public class TaxDict {
         states.Add("wisconsin", 0.0400);
         states.Add("wyoming", 0);
     }
-    
-    // public void inputKey() {
-    //     // uses the input from user to get dictionary key
-    //     Console.WriteLine("");
-    //     Console.WriteLine("Please use lower cases :)");
-    //     Console.Write("What state do you reside in: ");
-    //     string input = Console.ReadLine();
-    // } 
 }
