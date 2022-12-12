@@ -26,23 +26,28 @@ class dataInput {
         Console.WriteLine("lowercases pls");
         Console.Write("Do you get paid hourly or salary? ");
         string input = Console.ReadLine();
-        if (input == "hourly") {
+        return input;
+    }
+
+    public int wageInfo(wageType type) {
+        if (type == "hourly") {
             Console.WriteLine("");
             Console.Write("How much do get paid per hour, ex: $16? $");
             int perHour = int.Parse(Console.ReadLine()); //turns the input to int
-            return wageType.Hourly;
+            return perHour;
         }
-        else if(input == "salary") {
+        else if(type == "salary") {
             Console.WriteLine("");
             Console.Write("How much is your salary per year? $");
             int perAnnually = int.Parse(Console.ReadLine());
-            return wageType.Salary;
+            return perAnnually;
         }
         else {
             Console.WriteLine("Invalid input, stupid. Try again!!");
-            return hourlySalary(); //calls the method until a valid input is provided
+            return (int)hourlySalary(); //calls the method until a valid input is provided
         }
     }
+
 
     //     wageType wageType;
 
