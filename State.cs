@@ -55,4 +55,8 @@ public class TaxDict {
         states.Add("wisconsin", 0.0400);
         states.Add("wyoming", 0);
     }
+    public double getTaxRate(string state) {
+        double taxRate = states.GetValueOrDefault(state);
+        return taxRate;
+    }
 }
