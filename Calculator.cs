@@ -20,10 +20,10 @@ public class BillsCalculations : Calculations
     }
 }
 
-public class IncomeAfterTaxes : Calculations
-{
-    public double Calculate(double totalBills)
-    {
-        throw new NotImplementedException();
-    }
-}
+// public class IncomeAfterTaxes : Calculations
+// {
+//     public double Calculate(double totalBills)
+//     {
+//         ;
+//     }
+// }

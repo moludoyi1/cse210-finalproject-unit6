@@ -6,7 +6,7 @@ enum wageType {
     Salary,
     Hourly,
 }
-class dataInput {
+class dataInput { // stores inputs from the user
     public string stateInput() {
         // uses the input from user to get dictionary key
         Console.WriteLine("");
@@ -62,19 +62,24 @@ class dataInput {
 
             while (true) { //loop until the user inputs "done"
                 Console.WriteLine("");
-                Console.WriteLine("Enter 'done' when done entering bill names");
+                Console.WriteLine("Enter 'done' when done entering bill names/amount: ");
                 Console.Write("Enter the name of the utility or bill: ");
                 string billName = Console.ReadLine();
-                
-                Console.WriteLine("Enter the amount of the utility of bill per month: ");
-                string billAmount = Console.ReadLine();
-                utilities.Add(billName, double.Parse(billAmount)); //parses the input as double and adds the bill to the dictionary
-                
+
                 if (billName == "done") { //break the loop when user is done entering bills
                     break;
                 }
+                // else {
+                //     break;
+                // }
+
+                Console.WriteLine("Enter the amount of the utility of bill per month: ");
+                string billAmount = Console.ReadLine();
+                utilities.Add(billName, double.Parse(billAmount)); //parses the input as double and adds the bill to the dictionary
+                // break; 
             }
             return utilities;
+            // break;
         }
         else if (input == "no") {
             Console.WriteLine("alright, good for you!!");
@@ -82,6 +87,6 @@ class dataInput {
         }
         else {
             return default;
-        }
+        }        
     }
 }
